@@ -1,0 +1,21 @@
+{% extends 'voting/base.html' %}
+
+{% block content %}
+<h2>Hvilken foretrækker du?</h2>
+
+<div class="statement-box">
+    <p>{{ entry1.text }}</p>
+    <form action="{% url 'vote' entry1.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="vote-button">Stem på denne mulighed</button>
+    </form>
+</div>
+
+<div class="statement-box">
+    <p>{{ entry2.text }}</p>
+    <form action="{% url 'vote' entry2.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="vote-button">Stem på denne mulighed</button>
+    </form>
+</div>
+{% endblock %}
